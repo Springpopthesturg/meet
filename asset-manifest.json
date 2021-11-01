@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Springpopthesturg/meet.git/static/css/main.a617e044.chunk.css",
-    "main.js": "/Springpopthesturg/meet.git/static/js/main.87c7fb33.chunk.js",
-    "main.js.map": "/Springpopthesturg/meet.git/static/js/main.87c7fb33.chunk.js.map",
-    "runtime-main.js": "/Springpopthesturg/meet.git/static/js/runtime-main.cb8f3d2d.js",
-    "runtime-main.js.map": "/Springpopthesturg/meet.git/static/js/runtime-main.cb8f3d2d.js.map",
-    "static/js/2.327a8c14.chunk.js": "/Springpopthesturg/meet.git/static/js/2.327a8c14.chunk.js",
-    "static/js/2.327a8c14.chunk.js.map": "/Springpopthesturg/meet.git/static/js/2.327a8c14.chunk.js.map",
-    "static/js/3.cfd8952a.chunk.js": "/Springpopthesturg/meet.git/static/js/3.cfd8952a.chunk.js",
-    "static/js/3.cfd8952a.chunk.js.map": "/Springpopthesturg/meet.git/static/js/3.cfd8952a.chunk.js.map",
-    "index.html": "/Springpopthesturg/meet.git/index.html",
-    "service-worker.js": "/Springpopthesturg/meet.git/service-worker.js",
-    "service-worker.js.map": "/Springpopthesturg/meet.git/service-worker.js.map",
-    "static/css/main.a617e044.chunk.css.map": "/Springpopthesturg/meet.git/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.327a8c14.chunk.js.LICENSE.txt": "/Springpopthesturg/meet.git/static/js/2.327a8c14.chunk.js.LICENSE.txt",
-    "static/media/logo.103b5fa1.svg": "/Springpopthesturg/meet.git/static/media/logo.103b5fa1.svg"
+    "main.css": "/meet/static/css/main.a617e044.chunk.css",
+    "main.js": "/meet/static/js/main.cef07b4d.chunk.js",
+    "main.js.map": "/meet/static/js/main.cef07b4d.chunk.js.map",
+    "runtime-main.js": "/meet/static/js/runtime-main.8815573d.js",
+    "runtime-main.js.map": "/meet/static/js/runtime-main.8815573d.js.map",
+    "static/js/2.327a8c14.chunk.js": "/meet/static/js/2.327a8c14.chunk.js",
+    "static/js/2.327a8c14.chunk.js.map": "/meet/static/js/2.327a8c14.chunk.js.map",
+    "static/js/3.cfd8952a.chunk.js": "/meet/static/js/3.cfd8952a.chunk.js",
+    "static/js/3.cfd8952a.chunk.js.map": "/meet/static/js/3.cfd8952a.chunk.js.map",
+    "index.html": "/meet/index.html",
+    "service-worker.js": "/meet/service-worker.js",
+    "service-worker.js.map": "/meet/service-worker.js.map",
+    "static/css/main.a617e044.chunk.css.map": "/meet/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.327a8c14.chunk.js.LICENSE.txt": "/meet/static/js/2.327a8c14.chunk.js.LICENSE.txt",
+    "static/media/logo.103b5fa1.svg": "/meet/static/media/logo.103b5fa1.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.cb8f3d2d.js",
+    "static/js/runtime-main.8815573d.js",
     "static/js/2.327a8c14.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.87c7fb33.chunk.js"
+    "static/js/main.cef07b4d.chunk.js"
   ]
 }
