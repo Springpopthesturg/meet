@@ -99,12 +99,7 @@ module.exports.getCalendarEvents = async (event) => {
     client_secret,
     redirect_uris[0]
   );
-
-  const access_token = decodeURIComponent(
-    `${event.pathParameters.access_token}`
-  );
-
-  // Set the access token as credentials
+  const access_token = decodeURIComponent(`${event.pathParameters.access_token}`);
   oAuth2Client.setCredentials({ access_token });
 
   return new Promise((resolve, reject) => {
@@ -125,20 +120,20 @@ module.exports.getCalendarEvents = async (event) => {
       }
     );
   })
-    .then((results) => {
-      return {
-        statusCode: 200,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify({ events: results.data.items }),
-      };
-    })
-    .catch((err) => {
-      console.error(err);
-      return {
-        statusCode: 500,
-        body: JSON.stringify(err),
-      };
-    });
-  };
+  .then((results) => {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify({ events: results.data.items }),
+    };
+  })
+  .catch((err) => {
+    console.error(err);
+    return {
+      statusCode: 500,
+      body: JSON.stringify(err),
+    };
+  });
+};
