@@ -22,7 +22,7 @@ describe('<App /> component', () => {
   });
 
   test('number of events is rendered', () => {
-    expect(AppWrapper.find(NumberOfEvents)).toHaveLength(0);
+    expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
   });
 });
 
@@ -64,6 +64,14 @@ describe('<App /> integration', () => {
     await suggestionItems.at(suggestionItems.length - 1).simulate('click');
     const allEvents = await getEvents();
     expect(AppWrapper.state('events')).toEqual(allEvents);
+    AppWrapper.unmount();
+  });
+
+  test('pass NumberOfEvents state to', () => {
+    const AppWrapper = mount(<App />);
+    const AppNumberOfEventsState = AppWrapper.state('numberOfEvents');
+    expect(AppNumberOfEventsState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(12);
     AppWrapper.unmount();
   });
 
