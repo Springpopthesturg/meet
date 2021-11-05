@@ -1,12 +1,14 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import CitySearch from '../CitySearch';
-import App from '../App.js';
-import { mockData } from '../mock-data.js';
+import App from '../App';
+import { mockData } from '../mock-data';
+import {  extractLocations} from '../api';
 
 import { loadFeature, defineFeature } from 'jest-cucumber';
 
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
+const locations = extractLocations(mockData);
 
 defineFeature(feature, test => {
   test('When user hasn’t searched for a city, show upcoming events from all cities.', ({ given, when, then }) => {
@@ -23,7 +25,7 @@ defineFeature(feature, test => {
 
     then('the user should see the list of upcoming events.', () => {
       AppWrapper.update();
-        expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
+        expect(AppWrapper.find('Event')).toHaveLength(mockData.length);
     });
   });
 

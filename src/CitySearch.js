@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class CitySearch extends Component {
   state = {
@@ -53,4 +54,8 @@ class CitySearch extends Component {
   }
 }
 
+CitySearch.propTypes = {
+  locations: PropTypes.array.isRequired,
+  updateEvents: PropTypes.func.isRequired
+}
 export default CitySearch;
