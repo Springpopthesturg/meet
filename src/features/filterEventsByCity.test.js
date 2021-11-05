@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, } from 'enzyme';
 import App from '../App';
 import { mockData } from '../mock-data.js';
 
@@ -22,7 +22,7 @@ defineFeature(feature, test => {
 
     then('the user should see the list of upcoming events.', () => {
       AppWrapper.update();
-      expect(AppWrapper.find('.event').hostNodes()).toHaveLength(mockData.length);
+      expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
     });
   });
 
