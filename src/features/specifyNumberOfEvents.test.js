@@ -40,11 +40,11 @@ defineFeature(feature, (test) => {
       const numberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
       numberOfEventsWrapper
         .find("input")
-        .simulate("change", { target: { value: 20 } });
+        .simulate("change", { target: { value: 12 } });
     });
 
     then("the search results will display n event elements", () => {
-      expect(AppWrapper.state("numberOfEvents")).toEqual(20);
+      expect(AppWrapper.state("numberOfEvents")).toEqual(12);
     });
   });
 });

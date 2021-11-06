@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { InfoAlert } from "./Alert";
+import { InfoAlert, ErrorAlert } from "./Alert";
 
 class CitySearch extends Component {
   state = {

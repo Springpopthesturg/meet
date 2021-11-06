@@ -12,6 +12,7 @@ defineFeature(feature, (test) => {
     given("a list of events is displayed on the page", () => {
       let EventListWrapper = shallow(<EventList events={mockData} />);
       expect(EventListWrapper.find("ul.EventList")).toHaveLength(1);
+      
     });
 
     when("a user looks at the list of events", () => {});
