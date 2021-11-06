@@ -10,7 +10,7 @@ class NumberOfEvents extends Component {
 
         <RangeSlider
           min={0}
-          max={33}
+          max={13}
           className="num-events"
           value={this.props.numberOfEvents}
           onChange={(e) => this.props.updateEventCount(e)}
