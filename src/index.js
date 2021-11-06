@@ -23,5 +23,4 @@ serviceWorkerRegistration.unregister();
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
 atatus.config('34b9b9630cb24d81893f94f40374b90c').install();
