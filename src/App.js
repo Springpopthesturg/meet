@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import { InfoAlert, ErrorAlert } from "./Alert";
 import WelcomeScreen from './WelcomeScreen';
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer} from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './nprogress.css';
 import mockData from './mock-data'
 
@@ -25,7 +25,7 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
-    
+
     getEvents().then((events) => {
       if (this.mounted) {
         this.setState({ events, locations: extractLocations(events) });
@@ -33,7 +33,7 @@ class App extends Component {
     });
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.mounted = false;
   }
 
@@ -64,7 +64,7 @@ class App extends Component {
       this.updateEvents(this.state.currentLocation, this.state.numberOfEvents);
     }
   };
-  
+
   getData = () => {
     const { locations, events } = this.state;
     const data = locations.map((location) => {
@@ -82,30 +82,34 @@ class App extends Component {
     return (
       <Container className="App">
         <Row>
-          <Col className="CitySearchWrapper" md={4}>
+          <Col className="CitySearchWrapper" md={12}>
             <CitySearch locations={locations} updateEvents={this.updateEvents} />
           </Col>
-          <Col sm={12} md={4}>
-          <ResponsiveContainer height={400} >
-           <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-             <CartesianGrid />
-             <XAxis type="category" dataKey="city" name="city" />
-             <YAxis
-               allowDecimals={false}
-               type="number"
-               dataKey="number"
-               name="number of events"
-             />
-             <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-             <Scatter data={this.getData()} fill="#8884d8" />
-           </ScatterChart>
-         </ResponsiveContainer>
+        </Row>
+        <Row>
+          <Col sm={12} md={12}>
+            <ResponsiveContainer height={400} width={1800} >
+              <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 5 }}>
+                <CartesianGrid />
+                <XAxis type="category" dataKey="city" name="city" />
+                <YAxis
+                  allowDecimals={false}
+                  type="number"
+                  dataKey="number"
+                  name="number of events"
+                />
+                <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+                <Scatter data={this.getData()} fill="#8884d8" />
+              </ScatterChart>
+            </ResponsiveContainer>
           </Col>
-          <Col className="NumberInputWrapper" sm={12} md={4}>
-            <NumberOfEvents 
-            numberOfEvents={numberOfEvents} 
-            updateEventCount={this.updateEventCount} 
-            errorText={this.state.errorText}/>
+        </Row>
+        <Row>
+          <Col className="NumberInputWrapper" sm={12} md={12}>
+            <NumberOfEvents
+              numberOfEvents={numberOfEvents}
+              updateEventCount={this.updateEventCount}
+              errorText={this.state.errorText} />
           </Col>
         </Row>
         <Row>
@@ -114,7 +118,7 @@ class App extends Component {
           </Col>
         </Row>
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
-         getAccessToken={() => { getAccessToken() }} />
+          getAccessToken={() => { getAccessToken() }} />
       </Container>
     );
   }
