@@ -9,6 +9,7 @@ import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import { InfoAlert, ErrorAlert } from "./Alert";
 import WelcomeScreen from './WelcomeScreen';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import EventGenre from './EventGenre';
 import './nprogress.css';
 import mockData from './mock-data'
 
@@ -87,8 +88,11 @@ class App extends Component {
           </Col>
         </Row>
         <Row>
-          <Col sm={12} md={12}>
-            <ResponsiveContainer height={400} width={1800} >
+          <Col md={4}>
+        <EventGenre events={this.state.events} />
+        </Col>
+          <Col sm={12} md={8}>
+            <ResponsiveContainer height={300} width={800} >
               <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 5 }}>
                 <CartesianGrid />
                 <XAxis type="category" dataKey="city" name="city" />

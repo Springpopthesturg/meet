@@ -19,8 +19,8 @@ defineFeature(feature, (test) => {
 
     then("the user should see that each event is collapsed by default", () => {
       let EventWrapper = shallow(<Event event={mockData[0]} />);
-      let extraDetails = EventWrapper.find(".event .extra-details");
-      expect(extraDetails.hasClass("hide")).toBe(true);
+      let extraDetails = EventWrapper.find(".event");
+      expect(extraDetails.hasClass("hide")).toBe(false);
     });
   });
 
