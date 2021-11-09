@@ -5,9 +5,12 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import { getEvents, extractLocations } from './api';
+import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import { InfoAlert, ErrorAlert } from "./Alert";
+import WelcomeScreen from './WelcomeScreen';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer} from 'recharts';
 import './nprogress.css';
+import mockData from './mock-data'
 
 class App extends Component {
   state = {
@@ -15,12 +18,14 @@ class App extends Component {
     currentLocation: "all",
     locations: [],
     numberOfEvents: 12,
+    showWelcomeScreen: undefined,
     errorText: "",
     infoText: ""
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
+    
     getEvents().then((events) => {
       if (this.mounted) {
         this.setState({ events, locations: extractLocations(events) });
@@ -60,16 +65,43 @@ class App extends Component {
     }
   };
   
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter((event) => event.location === location).length
+      const city = location.split(', ').shift()
+      return { city, number };
+    })
+    return data;
+  };
 
   render() {
     const { locations, events, numberOfEvents } = this.state;
+    if (this.state.showWelcomeScreen === undefined);
+
     return (
       <Container className="App">
         <Row>
-          <Col className="CitySearchWrapper" md={6}>
+          <Col className="CitySearchWrapper" md={4}>
             <CitySearch locations={locations} updateEvents={this.updateEvents} />
           </Col>
-          <Col className="NumberInputWrapper" md={6}>
+          <Col sm={12} md={4}>
+          <ResponsiveContainer height={400} >
+           <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+             <CartesianGrid />
+             <XAxis type="category" dataKey="city" name="city" />
+             <YAxis
+               allowDecimals={false}
+               type="number"
+               dataKey="number"
+               name="number of events"
+             />
+             <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+             <Scatter data={this.getData()} fill="#8884d8" />
+           </ScatterChart>
+         </ResponsiveContainer>
+          </Col>
+          <Col className="NumberInputWrapper" sm={12} md={4}>
             <NumberOfEvents 
             numberOfEvents={numberOfEvents} 
             updateEventCount={this.updateEventCount} 
@@ -81,6 +113,8 @@ class App extends Component {
             <EventList events={events} />
           </Col>
         </Row>
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
+         getAccessToken={() => { getAccessToken() }} />
       </Container>
     );
   }

@@ -9,7 +9,7 @@ import EventList from "../EventList";
 const feature = loadFeature("./src/features/specifyNumberOfEvents.feature");
 
 defineFeature(feature, (test) => {
-  test("When user hasn’t specified a number, 2 is the default number", ({ given, when, then, }) => {
+  test("When user hasn’t specified a number, 12 is the default number", ({ given, when, then, }) => {
     let AppWrapper;
     given("the user hasn't specified a number of events to display", () => {
       AppWrapper = mount(<App />);
@@ -21,16 +21,16 @@ defineFeature(feature, (test) => {
     });
 
     then(
-      "the search result will display 2 results, which is the default number",
+      "the search result will display 12 results, which is the default number",
       () => {
-        expect(AppWrapper.find(".event")).toHaveLength(2);
+        expect(AppWrapper.find(".event")).toHaveLength(12);
       }
     );
   });
 
   test("User can change the number of events they want to see", ({ given, when, then, }) => {
     let AppWrapper;
-    given( "the user decides to see a different number n!=2 of events in the search results",() => {
+    given( "the user decides to see a different number n!=12 of events in the search results",() => {
         AppWrapper = mount(<App />);
         AppWrapper.setState({ showWelcomeScreen: false });
       }
