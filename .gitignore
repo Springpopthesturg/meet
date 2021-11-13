@@ -30,4 +30,4 @@ jspm_packages
 .serverless
 
 #Environment Variables
-.config.json
+config.json
